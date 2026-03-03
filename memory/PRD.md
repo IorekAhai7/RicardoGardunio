@@ -295,3 +295,91 @@ Construir una landing single-page profesional, premium y enfocada 100% a convers
 ---
 
 **Desarrollado con dedicación y profesionalismo** ✨
+
+---
+
+## Actualización - 1 de Noviembre, 2025
+
+### Cambios Implementados
+
+**1. Navegación Mejorada en Header:**
+- ✅ Agregado menú de navegación con enlaces a todas las secciones
+- ✅ Links: Sobre Ricardo, Servicios, Testimonios, Consulta, FAQs
+- ✅ Botón "Contactar" mantiene su prominencia a la derecha
+- ✅ Menú responsive con hamburguesa en móvil
+- ✅ Smooth scroll con offset para el header fijo
+
+**2. Flujo de Conversión Optimizado:**
+- ✅ **Nuevo flujo obligatorio:** Formulario → Calendly
+- ✅ Botón del Hero ahora dice "Solicitar Asesoría Gratuita" y lleva al formulario
+- ✅ Calendly se oculta inicialmente (isVisible={false})
+- ✅ Al enviar el formulario exitosamente:
+  - Se dispara el webhook
+  - Se dispara evento GA4 lead_form_submit
+  - Se muestra mensaje de éxito
+  - Se revela Calendly dinámicamente
+  - Se dispara evento calendly_open automáticamente
+  - Scroll automático a la sección de Calendly
+- ✅ Si el formulario falla, Calendly permanece oculto
+- ✅ WhatsApp flotante permanece visible en todo momento como fallback
+
+**3. Corrección de Nombres en Testimonios:**
+- ✅ Karla Rodríguez → **Laura Lavarrios**
+- ✅ Blanca Estela Ortega → **Daniela Tapia**
+
+**4. Actualización de FAQs:**
+- ✅ Pregunta modificada: "¿Trabajas con alguna aseguradora específica?"
+- ✅ Respuesta actualizada: Enfoque en GNP Seguros (una sola aseguradora)
+- ✅ Eliminada referencia a "múltiples aseguradoras"
+
+**5. Títulos y Textos Actualizados:**
+- ✅ Formulario: "Solicita tu Asesoría Gratuita"
+- ✅ Subtítulo formulario: "Completa este formulario y agenda tu consulta sin compromiso"
+- ✅ Botón formulario: "Enviar y Agendar Cita"
+- ✅ Calendly: "Selecciona la fecha y hora que mejor te convenga"
+
+**6. IDs de Sección para Navegación:**
+- ✅ Agregado scroll-mt-20 para offset del header fijo
+- ✅ ID "testimonios" en sección de testimonios
+- ✅ ID "faqs" en sección de FAQs
+- ✅ ID "pre-calificacion" en formulario
+- ✅ ID "agendar-cita" en Calendly (condicional)
+
+### Arquitectura del Nuevo Flujo
+
+```
+Usuario → Hero (CTA: "Solicitar Asesoría Gratuita")
+         ↓
+    Formulario de Pre-Calificación
+         ↓
+    Validación y Envío
+         ↓
+    ✅ Success → Webhook POST + GA4 Event
+         ↓
+    Revelación de Calendly (dinámico)
+         ↓
+    Auto-scroll a Calendly
+         ↓
+    Usuario agenda cita → GA4 Event calendly_scheduled
+         
+    ❌ Fallback en cualquier momento: WhatsApp flotante
+```
+
+### Estado del Proyecto
+
+**✅ Completado:**
+- Menú de navegación funcional
+- Flujo de conversión optimizado (formulario primero)
+- Nombres corregidos en testimonios
+- FAQs actualizadas para GNP
+- Calendly de revelación condicional
+- Tracking completo de eventos
+
+**Pendiente de Configuración:**
+- URL real de Calendly
+- ID de Google Analytics 4
+- URL y secret del webhook
+
+---
+
+**Última actualización:** 1 de Noviembre, 2025

@@ -189,13 +189,13 @@ Mi compromiso no es vender productos. Es construir relaciones a largo plazo basa
     },
     {
       id: 4,
-      name: "Karla Rodríguez",
+      name: "Laura Lavarrios",
       role: "",
       content: "Ricardo es una persona que transmite confianza y empatía, se preocupa porque estés informado y tranquilo, te acompaña en todo momento, con gran experiencia en la materia te asesora para que puedas tomar la mejor decisión con el fin de lograr tus objetivos y cumplir tus metas. Sin duda el dejarte guiar por él, te permitirá contar con la visión de alguien en constante actualización y con gran ética.",
     },
     {
       id: 5,
-      name: "Blanca Estela Ortega",
+      name: "Daniela Tapia",
       role: "Project Manager",
       content: "Obtener mi PPR era algo que tenía en lista hace mucho tiempo. Ricardo me asesoró de manera clara y profesional, explicándome cada detalle para que tomara la mejor decisión. Su acompañamiento fue fundamental para concretar este objetivo.",
     },
@@ -237,8 +237,8 @@ Mi compromiso no es vender productos. Es construir relaciones a largo plazo basa
     },
     {
       id: 7,
-      question: "¿Trabajas con varias aseguradoras?",
-      answer: "Sí, trabajo con múltiples aseguradoras de prestigio en México. Esto me permite comparar opciones y encontrar la que mejor se adapte a tus necesidades específicas.",
+      question: "¿Trabajas con alguna aseguradora específica?",
+      answer: "Sí, trabajo con GNP Seguros, una de las aseguradoras más sólidas y confiables de México. Esto me permite conocer a fondo sus productos y ofrecerte las mejores soluciones adaptadas a tus necesidades.",
     },
     {
       id: 8,

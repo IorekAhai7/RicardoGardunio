@@ -16,7 +16,7 @@ import {
 import { Loader2, CheckCircle2 } from 'lucide-react';
 import { toast } from 'sonner';
 
-export const LeadForm = () => {
+export const LeadForm = ({ onFormSuccess }) => {
   const { formFields } = siteConfig;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -53,42 +53,38 @@ export const LeadForm = () => {
         trackLeadFormSubmit(formData);
         
         setIsSuccess(true);
-        toast.success('¡Gracias! Tu solicitud ha sido enviada correctamente.');
+        toast.success('¡Gracias! Ahora puedes agendar tu cita.');
         
-        // Resetear formulario después de 3 segundos
-        setTimeout(() => {
-          setFormData({
-            insuranceType: '',
-            city: '',
-            contactMethod: '',
-            contactValue: '',
-            urgency: '',
-            message: '',
-          });
-          setIsSuccess(false);
-        }, 3000);
+        // Llamar al callback para mostrar Calendly
+        if (onFormSuccess) {
+          setTimeout(() => {
+            onFormSuccess();
+          }, 1500);
+        }
       } else {
         throw new Error('Error al enviar la solicitud');
       }
     } catch (error) {
       console.error('Form submission error:', error);
       toast.error('Hubo un error al enviar tu solicitud. Por favor intenta nuevamente.');
-    } finally {
       setIsSubmitting(false);
     }
   };
 
   if (isSuccess) {
     return (
-      <section id="pre-calificacion" className="py-20 bg-white">
+      <section id="pre-calificacion" className="py-20 bg-white scroll-mt-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-12 text-center">
             <CheckCircle2 className="w-16 h-16 text-green-600 mx-auto mb-6" />
             <h3 className="text-3xl font-bold text-green-900 mb-4">
               ¡Solicitud Enviada!
             </h3>
-            <p className="text-green-700 text-lg">
-              Gracias por tu interés. Me pondré en contacto contigo muy pronto.
+            <p className="text-green-700 text-lg mb-4">
+              Gracias por tu interés. Ahora puedes agendar tu consulta gratuita.
+            </p>
+            <p className="text-green-600 text-sm">
+              Desplázate hacia abajo para seleccionar tu fecha y hora preferida...
             </p>
           </div>
         </div>
@@ -97,14 +93,14 @@ export const LeadForm = () => {
   }
 
   return (
-    <section id="pre-calificacion" className="py-20 bg-white">
+    <section id="pre-calificacion" className="py-20 bg-white scroll-mt-20">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl lg:text-5xl font-bold text-[hsl(var(--primary))] mb-4">
-            Pre-Calificación
+            Solicita tu Asesoría Gratuita
           </h2>
           <p className="text-xl text-gray-600 mb-6">
-            Cuéntame un poco sobre tus necesidades para poder ayudarte mejor
+            Completa este formulario y agenda tu consulta sin compromiso
           </p>
           <div className="w-20 h-1 bg-[hsl(var(--accent))] mx-auto" />
         </div>
@@ -230,7 +226,7 @@ export const LeadForm = () => {
                 Enviando...
               </>
             ) : (
-              'Enviar Solicitud'
+              'Enviar y Agendar Cita'
             )}
           </Button>
 

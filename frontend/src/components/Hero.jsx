@@ -5,8 +5,13 @@ import { ArrowDown } from 'lucide-react';
 export const Hero = () => {
   const { advisor } = siteConfig;
 
-  const scrollToAbout = () => {
-    document.getElementById('sobre-ricardo')?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToForm = () => {
+    const element = document.getElementById('pre-calificacion');
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({ top: elementPosition - offset, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -40,11 +45,11 @@ export const Hero = () => {
         </div>
 
         <button
-          onClick={scrollToAbout}
-          className="inline-flex items-center gap-2 text-white hover:text-[hsl(var(--accent))] transition-colors group"
+          onClick={scrollToForm}
+          className="inline-flex items-center gap-2 bg-[hsl(var(--accent))] text-[hsl(var(--primary))] px-8 py-4 rounded-lg hover:bg-[hsl(var(--gold-dark))] transition-all duration-300 hover:shadow-xl font-semibold text-lg"
         >
-          <span className="text-sm tracking-wide">Conoce más</span>
-          <ArrowDown className="w-5 h-5 animate-bounce" />
+          <span>Solicitar Asesoría Gratuita</span>
+          <ArrowDown className="w-5 h-5" />
         </button>
       </div>
 

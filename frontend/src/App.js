@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "@/App.css";
 import { Toaster } from "@/components/ui/sonner";
 import { initGA4 } from "@/utils/analytics";
@@ -17,6 +17,8 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 
 function App() {
+  const [showCalendly, setShowCalendly] = useState(false);
+
   useEffect(() => {
     // Inicializar Google Analytics 4
     initGA4();
@@ -36,6 +38,10 @@ function App() {
     });
   }, []);
 
+  const handleFormSuccess = () => {
+    setShowCalendly(true);
+  };
+
   return (
     <div className="App">
       {/* Header fijo */}
@@ -49,8 +55,8 @@ function App() {
         <Services />
         <HowItWorks />
         <Testimonials />
-        <CalendlySection />
-        <LeadForm />
+        <LeadForm onFormSuccess={handleFormSuccess} />
+        <CalendlySection isVisible={showCalendly} />
         <FAQs />
       </main>
 
