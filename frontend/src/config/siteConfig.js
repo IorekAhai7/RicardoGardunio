@@ -9,7 +9,7 @@ export const siteConfig = {
   // ============================================
   integrations: {
     calendlyUrl: "https://calendly.com/tu-usuario", // Reemplaza con tu URL de Calendly
-    ga4Id: "G-XXXXXXXXXX", // Reemplaza con tu ID de Google Analytics 4
+    ga4Id: "G-QRM95Q66XK",
     webhookUrl: process.env.REACT_APP_WEBHOOK_URL || "https://tu-webhook.com/endpoint",
     webhookSecret: process.env.REACT_APP_WEBHOOK_SECRET || "tu-secret-key",
   },
